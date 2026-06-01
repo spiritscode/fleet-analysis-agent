@@ -123,20 +123,20 @@ What happened with V-104?              ← uses conversation history
 
 ## How it would work in production
 
-| Component | Demo (current) | Production |
+| Component | Production |
 |---|---|---|
-| `get_anomaly_scores()` | hardcoded dict | call live Isolation Forest endpoint |
-| `forecast_delay()` | hardcoded dict | call scikit-learn model service |
-| `send_slack_alert()` | print to console | POST to Slack webhook API |
-| Scheduling | manual query | cron job or Airflow DAG every 15 min |
-| History storage | in-memory list | Redis or database per session |
-| Auth | env var | secrets manager (AWS SSM / GCP Secret Manager) |
+| `get_anomaly_scores()` | call live Isolation Forest endpoint |
+| `forecast_delay()` | call scikit-learn model service |
+| `send_slack_alert()` | POST to Slack webhook API |
+| Scheduling | cron job or Airflow DAG every 15 min |
+| History storage | Redis or database per session |
+| Auth | secrets manager (AWS SSM / GCP Secret Manager) |
 
 ---
 
 ## Origin
 
-This project reimagines the fleet performance and logistics delay forecasting work done at JUNA Technologies. The ML models (Isolation Forest for anomaly detection, scikit-learn for delay forecasting) represent the existing prediction layer. The agent wraps that layer so operational insights reach the team in plain English, automatically — eliminating the manual report preparation that was the primary bottleneck.
+This project reimagines the fleet performance and logistics delay forecasting work done. The ML models (Isolation Forest for anomaly detection, scikit-learn for delay forecasting) represent the existing prediction layer. The agent wraps that layer so operational insights reach the team in plain English, automatically — eliminating the manual report preparation that was the primary bottleneck.
 
 ---
 
