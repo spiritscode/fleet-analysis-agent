@@ -1,5 +1,3 @@
-# fleet-analysis-agent
-
 # Fleet Intelligence Agent
 
 An agentic AI system built on the Claude API that monitors fleet performance and delivers plain-English operational briefings — automatically.
